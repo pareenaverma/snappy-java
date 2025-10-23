@@ -50,6 +50,12 @@ ifndef CXXFLAGS_BITSHUFFLE
         # in the small part of them. gcc in linux/x86_64 typically enables SSE2 by default though,
 	# we explicitly set flags below to make this precondition clearer.
 	CXXFLAGS_BITSHUFFLE:=-U__AVX2__ -msse2
+  else ifeq ($(OS_ARCH),aarch64)
+	# ARM64 optimizations: enable ARMv8-A architecture and NEON SIMD
+	CXXFLAGS_BITSHUFFLE:=-U__AVX2__ -U__SSE2__ -march=armv8-a
+  else ifneq (,$(findstring arm,$(OS_ARCH)))
+	# ARM 32-bit optimizations: enable appropriate ARM architecture
+	CXXFLAGS_BITSHUFFLE:=-U__AVX2__ -U__SSE2__ -march=armv7-a -mfpu=neon
   else
 	# Undefined macros to generate a platform-independent binary
 	CXXFLAGS_BITSHUFFLE:=-U__AVX2__ -U__SSE2__

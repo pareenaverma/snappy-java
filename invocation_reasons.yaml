@@ -66,3 +66,27 @@ args:
   extra_args: null
 reason: Scanning the C++ native components to identify any x86-specific intrinsics,
   assembly code, or architecture-specific optimizations
+---
+id: d8d2fb40-be02-4413-93ec-07746c626585
+timestamp: '2025-10-23T14:13:16.830569+00:00'
+tool: check_image
+args:
+  image: centos:7
+reason: Checking if a more modern CentOS base image supports ARM architecture as an
+  alternative to CentOS 5
+---
+id: e216377d-2902-426c-aea7-5565097559e4
+timestamp: '2025-10-23T14:13:17.224251+00:00'
+tool: check_image
+args:
+  image: centos:8
+reason: Checking if CentOS 8 supports ARM architecture as an alternative to CentOS
+  5
+---
+id: e23963c3-8394-450d-9c84-59cda5111a60
+timestamp: '2025-10-23T14:13:17.624803+00:00'
+tool: check_image
+args:
+  image: rockylinux:8
+reason: Checking if Rocky Linux 8 supports ARM architecture as a modern alternative
+  to CentOS 5
