@@ -12,7 +12,8 @@ snappy-java is a Java port of the [snappy](https://github.com/google/snappy), a 
      * Although snappy-java uses JNI, it can be used safely with multiple class loaders (e.g. Tomcat, etc.).
   * Compression/decompression of Java primitive arrays (`float[]`, `double[]`, `int[]`, `short[]`, `long[]`, etc.)
      * To improve the compression ratios of these arrays, you can use a fast data-rearrangement implementation ([`BitShuffle`](https://oss.sonatype.org/service/local/repositories/releases/archive/org/xerial/snappy/snappy-java/1.1.8/snappy-java-1.1.8-javadoc.jar/!/org/xerial/snappy/BitShuffle.html)) before compression
-  * Portable across various operating systems; Snappy-java contains native libraries built for Window/Mac/Linux, etc. snappy-java loads one of these libraries according to your machine environment (It looks system properties, `os.name` and `os.arch`).
+  * Portable across various operating systems and architectures; Snappy-java contains native libraries built for Windows/Mac/Linux on x86, x86_64, ARM, and other architectures. snappy-java loads one of these libraries according to your machine environment (It looks system properties, `os.name` and `os.arch`).
+  * **ARM Support**: Full support for ARM architectures including AArch64 (ARM64), ARMv5, ARMv6, ARMv7 on Linux and macOS, as well as Windows on ARM64.
   * Simple usage. Add the snappy-java-(version).jar file to your classpath. Then call compression/decompression methods in `org.xerial.snappy.Snappy`.
   * [Framing-format support](https://github.com/google/snappy/blob/master/framing_format.txt) (Since 1.1.0 version)
   * OSGi support
